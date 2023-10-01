@@ -18,12 +18,12 @@ int desencriptar(int encriptada[], int p, int q, int e, int arrSize) {
     mpz_set_si(mpzQ, q);
     mpz_set_si(mpzE, e);
 
-    mpz_mul(mpzN, mpzP, mpzQ);
-    mpz_sub_ui(mpzP, mpzP, 1);
-    mpz_sub_ui(mpzQ, mpzQ, 1);
-    mpz_mul(mpzProduct, mpzP, mpzQ);
+    mpz_mul(mpzN, mpzP, mpzQ); //n = p*q
+    mpz_sub_ui(mpzP, mpzP, 1); //p-1
+    mpz_sub_ui(mpzQ, mpzQ, 1); //q-1
+    mpz_mul(mpzProduct, mpzP, mpzQ); //product = (p-1)*(q-1)
 
-    mpz_invert(mpzInverse, mpzE, mpzProduct);
+    mpz_invert(mpzInverse, mpzE, mpzProduct); //calcular o d(inverso) de e mod product
 
     FILE *outputFile = fopen("desencriptado.txt", "wb"); // Abrir em modo binário
     //estou a olhar
