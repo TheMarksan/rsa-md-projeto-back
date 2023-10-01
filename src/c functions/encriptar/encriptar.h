@@ -52,11 +52,11 @@ int encriptar(char message[], int n, int e){
     FILE *file = fopen("encriptado.txt", "w");
     if (file) {
         for (i = 0; i < arrSize; i++) {
-            gmp_fprintf(file, "%Zd\n", encryptedValues[i]);
+            gmp_fprintf(file, "%Zd ", encryptedValues[i]);
             mpz_clear(encryptedValues[i]);
         }
         fclose(file);
-        printf("Valores encriptados salvos em valores_encriptados.txt\n");
+        //printf("Valores encriptados salvos em valores_encriptados.txt\n");
     } else {
         printf("Erro ao abrir o arquivo para escrita.\n");
     }
