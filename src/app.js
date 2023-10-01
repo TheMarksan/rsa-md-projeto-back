@@ -13,6 +13,9 @@ app.use(cors());
 app.use(chavePubRouter);
 app.use(desencriptarRouter);
 app.use(encriptarRouter);
+app.get("/health", async (req,res) => {
+  res.sendStatus(200);
+})
 
 const PORT = 4000 || process.env.PORT;
 app.listen(PORT, () => {
