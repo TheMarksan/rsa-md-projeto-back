@@ -25,7 +25,9 @@ int desencriptar(int encriptada[], int p, int q, int e, int arrSize) {
 
     mpz_invert(mpzInverse, mpzE, mpzProduct);
 
-    FILE *outputFile = fopen("mensagem.bin", "wb"); // Abrir em modo binário
+    FILE *outputFile = fopen("desencriptado.txt", "wb"); // Abrir em modo binário
+    //estou a olhar
+    
     if (outputFile == NULL) {
         perror("Erro ao abrir o arquivo de saída");
         mpz_clear(mpzP);

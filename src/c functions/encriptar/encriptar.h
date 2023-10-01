@@ -9,6 +9,7 @@ void expMod(mpz_t result, const mpz_t base, const mpz_t expoente, const mpz_t mo
 }
 
 int encriptar(char message[], int n, int e){
+    
     int i, arrSize;
 
     mpz_t asciiNum, n_mpz, e_mpz, result;
@@ -36,7 +37,7 @@ int encriptar(char message[], int n, int e){
     // Array para armazenar os valores encriptados
     mpz_t encryptedValues[maxEncryptedValues];
 
-    printf("Mensagem encriptada: ");
+    //printf("Mensagem encriptada: ");
     for (i = 0; i < arrSize; i++) {
         // Pré-codificação:
         int asciiValue = (int)message[i];
@@ -48,11 +49,22 @@ int encriptar(char message[], int n, int e){
     }
     printf("\n");
 
-    // Não há necessidade de salvar os valores encriptados em um arquivo
-
+    FILE *file = fopen("encriptado.txt", "w");
+    if (file) {
+        for (i = 0; i < arrSize; i++) {
+            gmp_fprintf(file, "%Zd\n", encryptedValues[i]);
+            mpz_clear(encryptedValues[i]);
+        }
+        fclose(file);
+        printf("Valores encriptados salvos em valores_encriptados.txt\n");
+    } else {
+        printf("Erro ao abrir o arquivo para escrita.\n");
+    }
+    
     mpz_clear(asciiNum);
     mpz_clear(n_mpz);
     mpz_clear(e_mpz);
     mpz_clear(result);
 
+    return 0;
 }

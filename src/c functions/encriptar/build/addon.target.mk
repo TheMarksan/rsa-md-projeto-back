@@ -92,7 +92,7 @@ INCS_Release := \
 	-I/path/to/gmp/include
 
 OBJS := \
-	$(obj).target/$(TARGET)/desencriptar.o
+	$(obj).target/$(TARGET)/encriptar.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)
