@@ -19,4 +19,4 @@
         <li>NodeJS</li>
     </ul>
     
-<a href="https://rsa-back.onrender.com/">Build do backend em render</a>
+<a href="https://rsa-back.onrender.com/" target="_blank">Build do backend em render</a>
