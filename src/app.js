@@ -17,7 +17,7 @@ app.get("/health", async (req,res) => {
   res.sendStatus(200);
 })
 
-const PORT = 4000 || process.env.PORT;
+const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
